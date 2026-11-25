@@ -1,0 +1,141 @@
+.forensic-desktop {
+  --workstation-ink: #0d1d17;
+  --workstation-window: #162c25;
+  --workstation-panel: #203c31;
+  --workstation-border: #486759;
+  --workstation-text: #fff0cb;
+  --workstation-muted: #a8bdcf;
+  --workstation-gold: #efb84e;
+  --workstation-green: #a5e8bc;
+  color: var(--workstation-text);
+  border: 2px solid var(--workstation-border);
+  background: #101c2b var(--forensic-wallpaper) center / cover;
+}
+
+.forensic-desktop-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  color: var(--workstation-text);
+  background: #0b1826;
+  border-bottom: 2px solid var(--workstation-border);
+  font: bold 0.84rem/1.35 ui-monospace, monospace;
+}
+
+.forensic-desktop-bar span:nth-child(2) { color: var(--workstation-green); }
+
+.forensic-desktop-body {
+  display: grid;
+  grid-template-columns: clamp(10rem, 28%, 17rem) minmax(0, 1fr);
+  gap: 0.8rem;
+  min-height: 31rem;
+  padding: 0.8rem;
+}
+
+.forensic-tools {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+}
+
+.forensic-desktop button,
+.forensic-desktop input,
+.forensic-desktop textarea {
+  box-sizing: border-box;
+  color: var(--workstation-text);
+  font: inherit;
+}
+
+.forensic-desktop button {
+  min-height: 2.3rem;
+  padding: 0.45rem 0.65rem;
+  background: var(--workstation-panel);
+  border: 1px solid var(--workstation-border);
+  border-radius: 0;
+}
+
+.forensic-desktop button[aria-pressed="true"] {
+  border-color: var(--workstation-gold);
+  box-shadow: inset 3px 0 0 var(--workstation-gold);
+}
+
+.forensic-desktop button:disabled { opacity: 0.72; }
+
+.forensic-desktop button:hover:not(:disabled) { border-color: var(--workstation-gold); }
+.forensic-desktop :focus-visible { outline: 2px solid var(--workstation-gold); outline-offset: 2px; }
+
+.forensic-desktop .forensic-tool {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: start;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.forensic-tool img { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; image-rendering: pixelated; }
+.forensic-tool strong { display: block; font-size: 0.83rem; line-height: 1.16; }
+.forensic-tool small { color: var(--workstation-muted); font-size: 0.72rem; display: block; line-height: 1.25; margin-top: 0.15rem; }
+
+.forensic-window { min-width: 0; background: var(--workstation-window); border: 1px solid var(--workstation-border); }
+.forensic-window h2 { font-size: 1.06rem; margin: 0; background: var(--workstation-panel); border-bottom: 1px solid var(--workstation-border); padding: 0.6rem 0.75rem; }
+.forensic-window-body { padding: 0.75rem; min-width: 0; }
+.forensic-window-body > :first-child { margin-top: 0; }
+.forensic-window p { max-width: 74ch; }
+
+.forensic-artifact { margin-top: 0.85rem; border-top: 1px solid var(--workstation-border); padding-top: 0.85rem; }
+.forensic-artifact h3 { margin: 0.3rem 0; }
+.forensic-citation { font-size: 0.82rem; color: var(--workstation-muted); overflow-wrap: anywhere; }
+.forensic-tag { color: var(--workstation-gold); font: 0.82rem ui-monospace, monospace; }
+.forensic-limit { border-inline-start: 3px solid var(--workstation-gold); padding: 0.35rem 0.65rem; background: var(--workstation-ink); }
+.forensic-record { display: grid; grid-template-columns: minmax(7rem, 27%) minmax(0,1fr); gap: 0.4rem 0.6rem; padding: 0.65rem; background: var(--workstation-ink); font-size: 0.87rem; }
+.forensic-record dt { color: var(--workstation-muted); overflow-wrap: anywhere; }
+.forensic-record dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.forensic-window a { color: #9dddf2; }
+.forensic-window figure { margin: 0.8rem 0; }
+.forensic-window figcaption { color: var(--workstation-muted); font-size: 0.85rem; margin: 0.15rem 0; }
+.forensic-preview img { display: block; width: min(100%, 520px); max-height: 18rem; object-fit: contain; object-position: left; image-rendering: pixelated; }
+.forensic-preview-small img { width: min(100%, 8rem); }
+.forensic-compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem),1fr)); gap: 0.5rem; }
+
+.forensic-window pre,
+.forensic-table {
+  margin: 0.45rem 0;
+  padding: 0.65rem;
+  background: var(--workstation-ink);
+  border: 1px solid var(--workstation-border);
+  color: var(--workstation-text);
+  overflow: auto;
+  max-width: 100%;
+  font: 0.83rem/1.5 ui-monospace, monospace;
+}
+
+.forensic-terminal pre { max-height: 19rem; min-height: 7rem; color: var(--workstation-green); white-space: pre-wrap; overflow-wrap: anywhere; }
+.forensic-table table { border-collapse: collapse; min-width: 100%; }
+.forensic-table th, .forensic-table td { border: 1px solid var(--workstation-border); padding: 0.4rem 0.55rem; text-align: start; }
+
+.forensic-choices { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.4rem 0; }
+.forensic-window label { display: block; margin: 0.55rem 0 0.22rem; font-weight: 600; }
+.forensic-window input,
+.forensic-window textarea { background: var(--workstation-ink); border: 1px solid var(--workstation-border); padding: 0.55rem; border-radius: 0; min-width: 0; }
+.forensic-window input { flex: 1 1 11rem; }
+.forensic-terminal input, .forensic-sql textarea { font: 0.92rem/1.45 ui-monospace, monospace; }
+.forensic-sql textarea { width: 100%; resize: vertical; }
+.forensic-answer { margin: 0.65rem 0; }
+.forensic-small { font-size: 0.84rem; color: var(--workstation-muted); }
+.forensic-hints { color: var(--workstation-gold); }
+.forensic-success { color: var(--workstation-green); }
+.forensic-error { color: #ffb6b6; }
+
+@media (max-width: 640px) {
+  .forensic-desktop-body { grid-template-columns: 1fr; gap: 0.5rem; padding: 0.5rem; }
+  .forensic-tools { grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.25rem), 1fr)); }
+  .forensic-tool small { display: none; }
+  .forensic-window-body { padding: 0.55rem; }
+  .forensic-record { grid-template-columns: minmax(0, 1fr); }
+  .forensic-record dd:not(:last-child) { margin-bottom: 0.4rem; }
+}
